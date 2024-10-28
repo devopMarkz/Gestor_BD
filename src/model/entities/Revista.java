@@ -6,8 +6,8 @@ public class Revista extends ItemBiblioteca{
 
     private String edicao;
 
-    public Revista(String titulo, Integer numeroDePaginas, Boolean disponivel, TipoItem tipoItem, String edicao){
-        super(titulo, numeroDePaginas, disponivel, tipoItem);
+    public Revista(Integer id, String titulo, Integer numeroDePaginas, Boolean disponivel, TipoItem tipoItem, String edicao){
+        super(id, titulo, numeroDePaginas, disponivel, tipoItem);
         this.edicao = edicao;
     }
 

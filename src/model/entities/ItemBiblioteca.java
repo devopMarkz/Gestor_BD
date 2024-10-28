@@ -4,6 +4,7 @@ import model.entities.enums.TipoItem;
 
 public abstract class ItemBiblioteca {
 
+    private Integer id;
     private String titulo;
     private Integer numeroDePaginas;
     private Boolean disponivel;
@@ -14,13 +15,23 @@ public abstract class ItemBiblioteca {
     public ItemBiblioteca(){
     }
 
-    public ItemBiblioteca(String titulo, Integer numeroDePaginas, Boolean disponivel, TipoItem tipoItem){
+    public ItemBiblioteca(Integer id, String titulo, Integer numeroDePaginas, Boolean disponivel, TipoItem tipoItem){
+        this.id = id;
         this.titulo = titulo;
         this.numeroDePaginas = numeroDePaginas;
         this.tipoItem = tipoItem;
     }
 
     // GETTERS E SETTERS
+
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getTitulo() {
         return titulo;

@@ -6,6 +6,7 @@ import java.time.Period;
 
 public class Emprestimo {
 
+    private Integer id;
     private Usuario usuario;
     private ItemBiblioteca itemBiblioteca;
     private LocalDate dataEmprestimo;
@@ -16,7 +17,8 @@ public class Emprestimo {
     public Emprestimo(){
     }
 
-    public Emprestimo(Usuario usuario, ItemBiblioteca itemBiblioteca, LocalDate dataEmprestimo) {
+    public Emprestimo(Integer id, Usuario usuario, ItemBiblioteca itemBiblioteca, LocalDate dataEmprestimo) {
+        this.id = id;
         this.usuario = usuario;
         this.itemBiblioteca = itemBiblioteca;
         this.dataEmprestimo = dataEmprestimo;
@@ -30,6 +32,15 @@ public class Emprestimo {
     }
 
     // GETTERS E SETTERS
+
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public Usuario getUsuario() {
         return usuario;

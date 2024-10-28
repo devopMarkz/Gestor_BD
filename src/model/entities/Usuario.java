@@ -7,7 +7,7 @@ public class Usuario {
     private String nome;
     private TipoUsuario tipoUsuario;
 
-    public Usuario(String nome, TipoUsuario tipoUsuario) {
+    public Usuario(String nome, TipoUsuario tipoUsuario) {;
         this.nome = nome;
         this.tipoUsuario = tipoUsuario;
     }
