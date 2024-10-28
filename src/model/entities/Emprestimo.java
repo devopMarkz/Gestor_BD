@@ -24,7 +24,8 @@ public class Emprestimo {
         this.dataEmprestimo = dataEmprestimo;
     }
 
-    public Emprestimo(Usuario usuario, ItemBiblioteca itemBiblioteca, LocalDate dataEmprestimo, LocalDate dataDevolucao) {
+    public Emprestimo(Integer id, Usuario usuario, ItemBiblioteca itemBiblioteca, LocalDate dataEmprestimo, LocalDate dataDevolucao) {
+        this.id = id;
         this.usuario = usuario;
         this.itemBiblioteca = itemBiblioteca;
         this.dataEmprestimo = dataEmprestimo;
@@ -81,4 +82,14 @@ public class Emprestimo {
                 .toDays();
     }
 
+    @Override
+    public String toString() {
+        return "Emprestimo{" +
+                "id=" + id +
+                ", usuario=" + usuario +
+                ", itemBiblioteca=" + itemBiblioteca +
+                ", dataEmprestimo=" + dataEmprestimo +
+                ", dataDevolucao=" + dataDevolucao +
+                '}';
+    }
 }

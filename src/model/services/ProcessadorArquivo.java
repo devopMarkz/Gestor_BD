@@ -1,6 +1,7 @@
 package model.services;
 
 import model.entities.Emprestimo;
+import model.entities.GestorEmprestimo;
 import model.entities.ItemBiblioteca;
 
 import java.io.File;
@@ -10,7 +11,7 @@ public interface ProcessadorArquivo {
 
     List<ItemBiblioteca> carregarItens(File caminhoArquivo);
 
-    List<Emprestimo> carregarEmprestimos(File caminhoArquivo);
+    List<Emprestimo> carregarEmprestimos(File caminhoArquivo, GestorEmprestimo gestorEmprestimo);
 
     void salvarItens(List<ItemBiblioteca> itens, File caminhoArquivo);
 

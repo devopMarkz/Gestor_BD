@@ -22,6 +22,7 @@ public class GestorEmprestimo {
         this.buscadorArquivo = buscadorArquivo;
 
         inventario.getItens().addAll(processadorArquivo.carregarItens(buscadorArquivo.getFilesInventario()));
+        emprestimos.addAll(processadorArquivo.carregarEmprestimos(buscadorArquivo.getFilesEmprestimos(), this));
     }
 
     public List<Emprestimo> getEmprestimos() {

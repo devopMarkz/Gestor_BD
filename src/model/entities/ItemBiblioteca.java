@@ -47,8 +47,13 @@ public abstract class ItemBiblioteca {
     }
 
     @Override
-    public String toString(){
-        return id + "," + titulo + "," + numeroDePaginas + "," + disponivel + "," + tipoItem;
+    public String toString() {
+        return "ItemBiblioteca{" +
+                "id=" + id +
+                ", titulo='" + titulo + '\'' +
+                ", numeroDePaginas=" + numeroDePaginas +
+                ", disponivel=" + disponivel +
+                ", tipoItem=" + tipoItem +
+                '}';
     }
-
 }

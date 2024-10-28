@@ -16,7 +16,9 @@ public class Revista extends ItemBiblioteca{
     }
 
     @Override
-    public String toString(){
-        return super.toString() + "," + edicao;
+    public String toString() {
+        return super.toString() + "Revista{" +
+                "edicao='" + edicao + '\'' +
+                '}';
     }
 }

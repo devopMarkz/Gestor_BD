@@ -44,7 +44,7 @@ public class ProcessadorArquivoTxt implements ProcessadorArquivo {
     }
 
     @Override
-    public List<Emprestimo> carregarEmprestimos(File caminhoArquivo) {
+    public List<Emprestimo> carregarEmprestimos(File caminhoArquivo, GestorEmprestimo gestorEmprestimo) {
 
         List<Emprestimo> emprestimos = new ArrayList<>();
 
@@ -55,8 +55,11 @@ public class ProcessadorArquivoTxt implements ProcessadorArquivo {
 
                 Integer id = Integer.parseInt(coluna[0]);
                 Usuario usuario = new Usuario(coluna[1], TipoUsuario.valueOf(coluna[2]));
-                LocalDate dataEmprestimo = LocalDate.parse(coluna[3]);
-                LocalDate dataDevolucao = LocalDate.parse(coluna[4]);
+                ItemBiblioteca itemBiblioteca = (ItemBiblioteca) gestorEmprestimo.getInventario().getItens().get(Integer.valueOf(coluna[3]));
+                LocalDate dataEmprestimo = LocalDate.parse(coluna[4]);
+                LocalDate dataDevolucao = LocalDate.parse(coluna[5]);
+
+                emprestimos.add(new Emprestimo(id, usuario, itemBiblioteca, dataEmprestimo, dataDevolucao));
             }
 
         } catch (Exception e) {

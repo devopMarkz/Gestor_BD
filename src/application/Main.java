@@ -15,5 +15,7 @@ public class Main {
 
         g.getInventario().getItens().forEach(System.out::println);
 
+        g.getEmprestimos().forEach(System.out::println);
+
     }
 }
