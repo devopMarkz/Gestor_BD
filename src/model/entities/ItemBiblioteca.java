@@ -19,6 +19,7 @@ public abstract class ItemBiblioteca {
         this.id = id;
         this.titulo = titulo;
         this.numeroDePaginas = numeroDePaginas;
+        this.disponivel = disponivel;
         this.tipoItem = tipoItem;
     }
 
@@ -45,6 +46,9 @@ public abstract class ItemBiblioteca {
         return tipoItem;
     }
 
-
+    @Override
+    public String toString(){
+        return id + "," + titulo + "," + numeroDePaginas + "," + disponivel + "," + tipoItem;
+    }
 
 }

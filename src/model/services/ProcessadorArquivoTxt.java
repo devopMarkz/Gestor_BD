@@ -13,7 +13,7 @@ import java.util.Scanner;
 public class ProcessadorArquivoTxt implements ProcessadorArquivo {
 
     @Override
-    public List<ItemBiblioteca> carregarItens(String caminhoArquivo) {
+    public List<ItemBiblioteca> carregarItens(File caminhoArquivo) {
         List<ItemBiblioteca> itens = new ArrayList<>();
 
         try (Scanner sc = new Scanner(new BufferedReader(new FileReader(caminhoArquivo)))) {
@@ -24,10 +24,10 @@ public class ProcessadorArquivoTxt implements ProcessadorArquivo {
                 Integer id = Integer.parseInt(coluna[0]);
                 String titulo = coluna[1];
                 Integer numeroDePaginas = Integer.parseInt(coluna[2]);
-                Boolean disponivel = Boolean.parseBoolean(coluna[3]);
+                Boolean disponivel = Boolean.valueOf(coluna[3]);
                 TipoItem tipoItem = TipoItem.valueOf(coluna[4]);
 
-                if (coluna[3].equals(TipoItem.LIVRO.name())) {
+                if (coluna[4].equals(TipoItem.LIVRO.name())) {
                     String autor = coluna[5];
                     itens.add(new Livro(id, titulo, numeroDePaginas, disponivel, tipoItem, autor));
                 } else {
@@ -44,7 +44,7 @@ public class ProcessadorArquivoTxt implements ProcessadorArquivo {
     }
 
     @Override
-    public List<Emprestimo> carregarEmprestimos(String caminhoArquivo) {
+    public List<Emprestimo> carregarEmprestimos(File caminhoArquivo) {
 
         List<Emprestimo> emprestimos = new ArrayList<>();
 
@@ -67,7 +67,7 @@ public class ProcessadorArquivoTxt implements ProcessadorArquivo {
     }
 
     @Override
-    public void salvarItens(List<ItemBiblioteca> itens, String caminhoArquivo) {
+    public void salvarItens(List<ItemBiblioteca> itens, File caminhoArquivo) {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(caminhoArquivo))) {
 
             StringBuilder stb = new StringBuilder();
@@ -80,7 +80,7 @@ public class ProcessadorArquivoTxt implements ProcessadorArquivo {
     }
 
     @Override
-    public void salvarEmprestimos(List<Emprestimo> emprestimos, String caminhoArquivo) {
+    public void salvarEmprestimos(List<Emprestimo> emprestimos, File caminhoArquivo) {
 
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(caminhoArquivo))) {
 

@@ -14,4 +14,9 @@ public class Livro extends ItemBiblioteca{
     public String getAutor() {
         return autor;
     }
+
+    @Override
+    public String toString(){
+        return super.toString() + "," + autor;
+    }
 }

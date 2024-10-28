@@ -1,17 +1,19 @@
 package application;
 
 import model.entities.Emprestimo;
+import model.entities.GestorEmprestimo;
+import model.entities.Inventario;
+import model.services.BuscadorArquivoTxt;
+import model.services.ProcessadorArquivoTxt;
 
 import java.time.LocalDate;
 
 public class Main {
     public static void main(String[] args) {
 
-        Emprestimo emp = new Emprestimo();
+        GestorEmprestimo g = new GestorEmprestimo(new Inventario(), new ProcessadorArquivoTxt(), new BuscadorArquivoTxt());
 
-        emp.setDataEmprestimo(LocalDate.now());
-        emp.setDataDevolucao(LocalDate.parse("2025-01-07"));
+        g.getInventario().getItens().forEach(System.out::println);
 
-        System.out.print(emp.diasDeEmprestimo());
     }
 }
