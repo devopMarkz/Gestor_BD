@@ -3,19 +3,24 @@ package application;
 import model.entities.Emprestimo;
 import model.entities.GestorEmprestimo;
 import model.entities.Inventario;
+import model.entities.ItemBiblioteca;
 import model.services.BuscadorArquivoTxt;
 import model.services.ProcessadorArquivoTxt;
 
 import java.time.LocalDate;
+import java.util.function.Predicate;
 
 public class Main {
+
     public static void main(String[] args) {
 
-        GestorEmprestimo g = new GestorEmprestimo(new Inventario(), new ProcessadorArquivoTxt(), new BuscadorArquivoTxt());
+        Inventario<ItemBiblioteca> inv = new Inventario<>();
 
-        g.getInventario().getItens().forEach(System.out::println);
+        GestorEmprestimo g = new GestorEmprestimo(inv, new ProcessadorArquivoTxt(), new BuscadorArquivoTxt());
 
-        g.getEmprestimos().forEach(System.out::println);
+        Predicate<ItemBiblioteca> p = itemBiblioteca -> itemBiblioteca.getTitulo().equals("A noiva cadáver");
+
+        System.out.println(g.getInventario().buscarItem(p));
 
     }
 }
