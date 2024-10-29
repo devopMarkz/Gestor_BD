@@ -8,6 +8,7 @@ import model.services.BuscadorArquivoTxt;
 import model.services.ProcessadorArquivoTxt;
 
 import java.time.LocalDate;
+import java.util.Scanner;
 import java.util.function.Predicate;
 
 public class Main {
@@ -18,7 +19,10 @@ public class Main {
 
         GestorEmprestimo g = new GestorEmprestimo(inv, new ProcessadorArquivoTxt(), new BuscadorArquivoTxt());
 
-        Predicate<ItemBiblioteca> p = itemBiblioteca -> itemBiblioteca.getTitulo().equals("A noiva cadáver");
+        System.out.print("Selecione o nome do livro que deseja selecionar: ");
+        String select = new Scanner(System.in).nextLine();
+
+        Predicate<ItemBiblioteca> p = itemBiblioteca -> itemBiblioteca.getTitulo().equals(select);
 
         System.out.println(g.getInventario().buscarItem(p));
 
